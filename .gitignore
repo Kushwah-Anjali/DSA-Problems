@@ -1,0 +1,12 @@
+# Ignore everything by default
+*
+
+# Include only these folders/files
+!BasicHashing/
+!BasicHashing/**
+
+!Leetcode_Problems/
+!Leetcode_Problems/**
+
+# Optional: include README if you have one
+!README.md

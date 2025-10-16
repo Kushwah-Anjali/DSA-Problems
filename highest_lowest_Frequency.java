@@ -5,33 +5,29 @@ import java.util.Map;
 
 public class highest_lowest_Frequency {
     public static void main(String args[]) {
-        int arr[] = { 10, 2, 10, 2, 10, 5 };
+        int arr[] = { 10, -2, -2, 10, -2, 10, 5 };
 
-        Frequency(arr);
+        System.out.println("Most Frequency element is "+  mostFrequentElement(arr));
     }
 
-    static void Frequency(int arr[]) {
-        int max = Integer.MIN_VALUE;
-        int maxElem = 0;
-        int min = Integer.MAX_VALUE;
-        int minElem = 0;
+    static int mostFrequentElement(int[] nums) {
+        int maxFreq = 0;
+        int minElem = Integer.MAX_VALUE;
+
         HashMap<Integer, Integer> Freq = new HashMap<>();
-        for (int num : arr) {
+        for (int num : nums) {
             Freq.put(num, Freq.getOrDefault(num, 0) + 1);
         }
         for (Map.Entry<Integer, Integer> entry : Freq.entrySet()) {
-            if (entry.getValue() > max) {
-                max = entry.getValue();
-                maxElem = entry.getKey();
-            }
-            if (entry.getValue() < min) {
-                min = entry.getValue();
+            if (entry.getValue() > maxFreq) {
+                maxFreq = entry.getValue();
                 minElem = entry.getKey();
+            } else if (maxFreq == entry.getValue()) {
+                if (entry.getKey() < minElem) {
+                    minElem = entry.getKey();
+                }
             }
-
         }
-        System.out.println("Max: " + maxElem + " appears " + max);
-        System.out.println("Min: " + minElem + " appears " + min);
-
+        return minElem;
     }
 }

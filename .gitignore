@@ -1,12 +1,7 @@
-# Ignore everything by default
-/*
-
-# Include these folders in GitHub
-!Leetcode_Problems/
-!Leetcode_Problems/**
-
-!BasicHashing/
-!BasicHashing/**
-
-# Optional: include README if you have one
-!README.md
+.vscode/
+basicmaths.java
+basicsHashing.java
+BufferedReaderExample.java
+PatternDSANotebook.java
+recursion.java
+scanner.java

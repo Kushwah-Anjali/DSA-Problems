@@ -1,30 +1,31 @@
+import java.util.Arrays;
+
 public class prob_1838_Freq {
     public static void main(String args[]) {
-        int nums[] = { 1, 8, 2, 5, };
-        // int k = 5;
-        // maxFrequency(arr, k);
+        int nums[] = { 1,2,4 };
+        int k = 5;
+ System.out.println(       maxFrequency(nums, k));
+    }
 
-        for (int i = 0; i < nums.length - 1; i++) {
-            if (nums[i] > nums[i + 1]) {
-                int temp = nums[i + 1];
-                nums[i + 1] = nums[i];
-                nums[i] = temp;
+    static int maxFrequency(int[] nums, int k) {
+       Arrays.sort(nums);
 
+        long sum = 0;
+        int left = 0;
+        int res = 0;
+
+        for (int right = 0; right < nums.length; right++) {
+            sum += nums[right];
+            while ((right - left + 1) * (long) nums[right] - sum > k) {
+                sum -= nums[left];
+                left++;
             }
+           
+            res = Math.max(res, right - left + 1);
+        }
+        // update max frequency
 
-        }
-        for (int j = 0; j < nums.length; j++) {
-            System.out.print(nums[j] + " ");
-        }
+
+        return res;
     }
 }
-// static int maxFrequency(int[] nums, int k) {
-// int max = Integer.MIN_VALUE;
-// for (int i = 0; i < nums.length; i++) {
-// if (nums[i] > max) {
-// int temp = max;
-// max = nums[i];
-// nums[i] = temp;
-// }
-// }
-// }

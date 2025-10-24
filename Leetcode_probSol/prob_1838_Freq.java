@@ -2,13 +2,13 @@ import java.util.Arrays;
 
 public class prob_1838_Freq {
     public static void main(String args[]) {
-        int nums[] = { 1,2,4 };
+        int nums[] = { 1, 2, 4 };
         int k = 5;
- System.out.println(       maxFrequency(nums, k));
+        System.out.println(maxFrequency(nums, k));
     }
 
     static int maxFrequency(int[] nums, int k) {
-       Arrays.sort(nums);
+        Arrays.sort(nums);
 
         long sum = 0;
         int left = 0;
@@ -20,11 +20,10 @@ public class prob_1838_Freq {
                 sum -= nums[left];
                 left++;
             }
-           
+
             res = Math.max(res, right - left + 1);
         }
         // update max frequency
-
 
         return res;
     }
